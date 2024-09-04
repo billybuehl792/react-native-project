@@ -14,7 +14,7 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+const RootLayout: React.FC = () => {
   const colorScheme = useColorScheme();
   const [fontsLoaded, error] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
@@ -27,6 +27,8 @@ export default function RootLayout() {
     "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
   });
+
+  /** Effects */
 
   useEffect(() => {
     if (error) throw error;
@@ -48,4 +50,6 @@ export default function RootLayout() {
       </Stack>
     </ThemeProvider>
   );
-}
+};
+
+export default RootLayout;
